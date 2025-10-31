@@ -14,6 +14,7 @@ import {
   ValidatedTextInput,
   withHistory,
   withModulesManager,
+  CheckboxInput,
 } from "@openimis/fe-core";
 import { medicalItemsValidationCheck, medicalItemsValidationClear, medicalItemsSetValid } from "../actions";
 import { ITEM_CODE_MAX_LENGTH } from "../constants";
@@ -80,6 +81,15 @@ class MedicalItemMasterPanel extends FormPanel {
               readOnly={Boolean(edited.id) || readOnly}
               value={edited ? edited.type : ""}
               onChange={(p) => this.updateAttribute("type", p)}
+            />
+          </Grid>
+          <Grid item xs={2} className={classes.item}>
+            <CheckboxInput
+              module="admin"
+              label="medical.item.preAuthorizationRequired"
+              readOnly={readOnly}
+              value={edited?.preAuthorizationRequired || false}
+              onChange={(p) => this.updateAttribute("preAuthorizationRequired", p)}
             />
           </Grid>
           <Grid item xs={2} className={classes.item}>

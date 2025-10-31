@@ -15,6 +15,7 @@ import {
   ValidatedTextInput,
   withHistory,
   withModulesManager,
+  CheckboxInput,
 } from "@openimis/fe-core";
 import { medicalServicesValidationCheck, medicalServicesValidationClear, medicalServicesSetValid } from "../actions";
 import { SERVICE_CODE_MAX_LENGTH, SERVICE_TYPE_PP_F, SERVICE_TYPE_PP_S } from "../constants";
@@ -131,6 +132,15 @@ class MedicalServiceMasterPanel extends FormPanel {
               readOnly={Boolean(edited.id) || readOnly}
               value={edited?.type ? edited.type : " "}
               onChange={(p) => this.updateAttribute("type", p)}
+            />
+          </Grid>
+          <Grid item xs={3} className={classes.item}>
+            <CheckboxInput
+              module="admin"
+              label="medical.service.preAuthorizationRequired"
+              readOnly={readOnly}
+              value={edited?.preAuthorizationRequired || false}
+              onChange={(p) => this.updateAttribute("preAuthorizationRequired", p)}
             />
           </Grid>
         </Grid>

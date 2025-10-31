@@ -114,5 +114,7 @@
   "manualPrice": "Manual",
   "edit.services.ceiling":"Ceiling",
   "edit.items.ceiling":"Ceiling",
-  "medical.item.createMedicalItem.mutationLabel": "Create Medical Item"
+  "medical.item.createMedicalItem.mutationLabel": "Create Medical Item",
+  "medical.service.preAuthorizationRequired": "Pre-authorization required",
+  "medical.item.preAuthorizationRequired": "Pre-authorization required"
 }

@@ -44,6 +44,7 @@ const MEDICAL_SERVICE_FULL_PROJECTION = (mm) => [
   "validityTo",
   "level",
   "category",
+  "preAuthorizationRequired",
 ];
 
 const MEDICAL_ITEM_FULL_PROJECTION = (mm) => [
@@ -61,6 +62,7 @@ const MEDICAL_ITEM_FULL_PROJECTION = (mm) => [
   "validityFrom",
   "validityTo",
   "package",
+  "preAuthorizationRequired",
 ];
 
 function formatGQLBoolean(value){
@@ -104,6 +106,7 @@ export function formatMedicalItemOrServiceGQL(mm, ms) {
     ${ms.package ? `package: "${formatGQLString(ms.package)}"` : ""}
     ${ms.packagetype ? `packagetype: "${formatGQLString(ms.packagetype)}"` : ""}
     ${ms.packagetype ?`manualPrice: "${formatGQLBoolean(ms.manualPrice)}"` : "" }
+    ${ms.preAuthorizationRequired !== undefined ? `preAuthorizationRequired: "${formatGQLBoolean(ms.preAuthorizationRequired)}"` : "" }
     ${formatDetails("service", ms.serviceserviceSet)}
     ${formatDetails("item", ms.servicesLinked)}
   `;
