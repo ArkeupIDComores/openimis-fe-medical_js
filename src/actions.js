@@ -108,7 +108,7 @@ export function formatMedicalItemOrServiceGQL(mm, ms) {
     ${ms.package ? `package: "${formatGQLString(ms.package)}"` : ""}
     ${ms.packagetype ? `packagetype: "${formatGQLString(ms.packagetype)}"` : ""}
     ${ms.packagetype ?`manualPrice: "${formatGQLBoolean(ms.manualPrice)}"` : "" }
-    ${ms.preAuthorizationRequired ? `preAuthorizationRequired: ${ms.preAuthorizationRequired}` : ""}
+    ${ `preAuthorizationRequired: ${!!ms.preAuthorizationRequired}` }
     ${formatDetails("service", ms.serviceserviceSet)}
     ${formatDetails("item", ms.servicesLinked)}
   `;
